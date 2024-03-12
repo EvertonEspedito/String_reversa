@@ -1,22 +1,20 @@
-def fibonacci(n):
-    fib = [0, 1]
-    for i in range(2, n + 1):
-        fib.append(fib[i - 1] + fib[i - 2])
-    return fib
+def inverter_string(s):
+    # Convertendo a string para uma lista de caracteres
+    caracteres = list(s)
+    
+    # Invertendo a lista de caracteres
+    tamanho = len(caracteres)
+    for i in range(tamanho // 2):
+        caracteres[i], caracteres[tamanho - i - 1] = caracteres[tamanho - i - 1], caracteres[i]
+    
+    # Construindo a string invertida a partir da lista de caracteres
+    string_invertida = ''.join(caracteres)
+    
+    return string_invertida
 
-def pertence_fibonacci(num, fib):
-    return num in fib
+# Exemplo de uso
+string_original = "Exemplo"
+string_invertida = inverter_string(string_original)
+print("String original:", string_original)
+print("String invertida:", string_invertida)
 
-def main():
-    n = int(input("Digite o número de termos da sequência de Fibonacci a serem calculados: "))
-    fib = fibonacci(n)
-
-    num = int(input("Digite um número para verificar se pertence à sequência de Fibonacci: "))
-
-    if pertence_fibonacci(num, fib):
-        print(f"{num} pertence à sequência de Fibonacci.")
-    else:
-        print(f"{num} não pertence à sequência de Fibonacci.")
-
-if __name__ == "__main__":
-    main()
